@@ -1,0 +1,124 @@
+@font-face {
+	font-family: 'Georgia';
+	src: url('../assets/fonts/Georgia.ttf');
+	src: url('../assets/fonts/Georgia.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Arial';
+	src: url('../assets/fonts/Arial.ttf');
+	src: url('../assets/fonts/Arial.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+* {
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+
+body {
+  width: 100%;
+  height: 100vh; 
+  background:url(../assets/images/noise_transparent@2x.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+}
+.container{
+  padding: 30px 10px;
+}
+
+#toggle {
+  display: none;
+}
+.hamburger {
+  position: absolute;
+  top: 5em;
+  right: 15%;
+  margin-top: -45px;
+  z-index: 5;
+  cursor: pointer;
+}
+.logo{
+  position: relative;
+  z-index: 5;
+}
+.menu-line {
+  position: relative;
+  width: 30px;
+  height:0;
+  margin-top:10px;
+  border: 2px solid #F1CDB3;
+  transition: all 0.3s ease-in-out;
+}
+.navbar{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #292929;
+    top: -100%; left: 0; right: 0; bottom: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    transform: scale(0);
+}
+ul{
+  padding:0;
+}
+.menu {
+  position: relative;
+  overflow: hidden;
+  overflow-y: auto;
+  height: 100%;
+  margin-top:160px;
+}
+nav {
+  text-align: center;
+}
+nav li {
+  position: relative;
+  list-style-type: none;
+  margin-top: 40px;
+  transition: color 0.2s ease-in-out;
+}
+li a{
+  text-decoration: none;
+  color:#FAFAFA;
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 160%;
+  cursor: pointer;
+}
+li:first-child{
+  border-bottom:3px solid #F1CDB3;
+  width:243px;
+}
+
+#toggle:checked + .hamburger  .a{
+  transform: rotate(90deg);
+  margin-left:10px;
+  margin-top:25px;
+}
+#toggle:checked + .hamburger  .b{
+  transform: rotate(90deg);
+  margin-top:-4px;
+  margin-left:20px;
+}
+#toggle:checked + .hamburger  .c{
+  transform: rotate(90deg);
+  margin-left:30px;
+  margin-top:-4px;
+}
+
+#toggle:checked + .hamburger + .navbar {
+  top: 0;
+  transform: scale(1);
+}
+
+
+
+
+@media only screen and (min-width: 768px) {
+  
+}
