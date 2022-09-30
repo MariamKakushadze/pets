@@ -197,6 +197,7 @@ li:first-child{
   background:#F6F6F6;
   text-align: center;
   padding-top:4px;
+  padding-bottom:20px;
 }
 .pet-section-h{
   color: #545454;
@@ -270,6 +271,31 @@ li:first-child{
 }
 .get-to-know:hover{
   background: #f1d8c6;
+}
+
+/*help section*/
+.help-pets-h{
+  color: #545454;
+
+}
+.help-pets{
+  background: #FFFFFF;
+  text-align: center;
+}
+.items-list{
+  margin-top:42px;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap:30px;
+}
+.items-list h4{
+  padding-top: 10px;
+  font-family: 'Georgia';
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 110%;
+  letter-spacing: 0.06em;
+  color: #545454;
 }
 /*tablet version*/
 @media only screen and (min-width: 768px) {
