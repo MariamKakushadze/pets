@@ -379,7 +379,6 @@ nav li:first-child{
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
 }
 .contact-details span{
   padding-left:20px;
@@ -387,8 +386,9 @@ nav li:first-child{
 .for-visit{
   margin-top:40px;
 }
-.left-align{
-  margin-left:0px
+.left-align, .left-align a{
+  margin:0px;
+  margin-left:-14px;
 }
 .bottom-padding{
   padding-bottom: 0;
@@ -398,6 +398,7 @@ nav li:first-child{
   max-width:260px;
   max-height:269px;
 }
+
 /*modal window*/
 .hidden{
   display:none;
@@ -429,12 +430,51 @@ nav li:first-child{
   border-radius: 100px;
   cursor: pointer;
   position: absolute;
-  top:-450px;
+  top:-452px;
   font-size: 20px;;
-  right:-20px;
+  right:-27px;
   background: none;
   width:52px;
   height:52px;
+}
+.modal-txt{
+  font-family: 'Georgia';
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: #000000;
+}
+.modal-title{
+  font-size: 35px;
+  line-height: 130%;
+  padding-top:10px;
+}
+.modal-subtitle{
+  margin:20px;
+  font-size: 20px;
+  line-height: 115%;
+}
+.modal-p{
+  padding:0 10px;
+  font-size: 13px;
+  line-height: 110%;
+  text-align: justify;
+}
+.properties{
+  font-size: 15px;
+  line-height: 110%;
+  padding-top:20px;
+  padding-bottom: 10px;
+  text-align: justify;
+  list-style: none;
+}
+.properties li::before{
+  color:#F1CDB3;
+  content: "\2022";
+  font-weight: bold;
+  display: inline-block; 
+  width: 1em;
+  margin-left: -2em;
+  padding-top:5px;
 }
 /*tablet version*/
 @media only screen and (min-width: 768px) {
