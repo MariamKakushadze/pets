@@ -61,15 +61,13 @@ body {
     transition: all 0.3s ease-in-out;
     transform: scale(0);
 }
-ul{
-  padding:0;
-}
 .menu {
   position: relative;
   overflow: hidden;
   overflow-y: auto;
   height: 100%;
   margin-top:160px;
+  padding:0;
 }
 nav {
   text-align: center;
@@ -80,7 +78,7 @@ nav li {
   margin-top: 40px;
   transition: color 0.2s ease-in-out;
 }
-li a{
+nav li a{
   text-decoration: none;
   color:#FAFAFA;
   font-family: 'Arial';
@@ -89,7 +87,7 @@ li a{
   line-height: 160%;
   cursor: pointer;
 }
-li:first-child{
+nav li:first-child{
   border-bottom:3px solid #F1CDB3;
   width:243px;
 }
@@ -197,6 +195,7 @@ li:first-child{
   text-align: center;
   padding-top:4px;
   padding-bottom:20px;
+  position: relative;;
 }
 .pet-section-h{
   color: #545454;
@@ -204,11 +203,12 @@ li:first-child{
 }
 .cards{
   padding:42px 15px;
+  z-index:-1;
 }
 .cards-el{
-  background: #FAFAFA;
   border-radius: 9px;
   cursor:pointer;
+  background: #FAFAFA;
 }
 .pet-name{
   font-family: 'Georgia';
@@ -397,6 +397,44 @@ li:first-child{
   margin-top:40px;
   max-width:260px;
   max-height:269px;
+}
+/*modal window*/
+.hidden{
+  display:none;
+}
+.modal{
+  position:relative;
+  z-index:10;
+  padding:10;
+  max-width:85%;
+}
+.modal-container{
+  position: absolute;
+  background: #FAFAFA;
+  top:-400px;
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  border-radius: 9px;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(41, 41, 41, 0.6);
+  z-index: 5;
+}
+.close-modal{
+  border: 2px solid #F1CDB3;
+  border-radius: 100px;
+  cursor: pointer;
+  position: absolute;
+  top:-450px;
+  font-size: 20px;;
+  right:-20px;
+  background: none;
+  width:52px;
+  height:52px;
 }
 /*tablet version*/
 @media only screen and (min-width: 768px) {
