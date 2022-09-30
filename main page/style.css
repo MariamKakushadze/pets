@@ -297,6 +297,65 @@ li:first-child{
   letter-spacing: 0.06em;
   color: #545454;
 }
+/* donation section */
+.donation{
+  background:#F6F6F6;
+  text-align: center;
+}
+.donation-txt-container{
+  padding:0 10px;
+}
+.donation-title{
+  color: #545454;
+  margin-top:10px;
+}
+.bank-acc{
+  padding:20px 0;
+  font-family: 'Georgia';
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 160%;
+  color: #545454;
+}
+.credit-card{
+  display:flex;
+  flex-direction: row;
+  background: #F1CDB3;
+  border-radius: 9px;
+  padding: 10px 15px;
+  gap: 10px;
+}
+.credit-card a{
+  margin:0;
+  text-decoration: none;
+  cursor:pointer;
+}
+.credit-card-number{
+  font-family: 'Georgia';
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 110%;
+  letter-spacing: 0.06em;
+  color: #545454;
+  
+}
+.credit-card-icon{
+  margin:0;
+}
+.donation-p{
+  margin-top:20px;
+  font-family: 'Arial';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: justify;
+  color: #B2B2B2;
+}
+.donation-dog-img{
+  margin-top:42px;
+  padding-bottom: 12px;;
+}
 /*tablet version*/
 @media only screen and (min-width: 768px) {
   
