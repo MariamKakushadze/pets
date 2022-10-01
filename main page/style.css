@@ -21,7 +21,6 @@
 body {
   width: 100%;
   height: 100vh; 
-  max-height:823px;
   background:url(../assets/images/noise_transparent@2x.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
 }
 .container{
@@ -476,7 +475,217 @@ nav li:first-child{
   margin-left: -2em;
   padding-top:5px;
 }
+.not-for-mobile{
+  display: none;
+}
 /*tablet version*/
 @media only screen and (min-width: 768px) {
+  .container{
+    padding:33px 34px;
+  }
+  .hamburger{
+    display:none;
+  }
+  .navbar{
+    background:none;
+    top: -150px; left: 35%; right: 0; bottom: 0;
+    transform: scale(1);
+    position:absolute;
+    width:60%;
+    height:fit-content;
+    transition: none;
+    margin:0;
+
+  }
+  .menu{
+    display:flex;
+    flex-direction: row;
+    gap:35px;
+    text-align: right;
+    height:auto;
+  }
+ 
+  nav li a{
+    font-size: 15px;
+    color: #CDCDCD;
+    
+  }
+  nav li:first-child{
+    border-bottom:3px solid #F1CDB3;
+    width:114px;
   
+  }
+  .logo{
+    z-index: -1;
+  }
+  .start-screen-txt{
+    max-width:460px;
+    text-align: left;
+    margin-top:-15px;
+  }
+  .start-screen-content{
+    height:735px;
+  }
+  .headding{
+    font-size:44px;
+    padding:0;
+  }
+  .main-puppy-img img{
+    width:569px;
+    height:593px;
+    top:px;
+  }
+  /*About shelter*/
+  .about-shelter{
+    padding-top:55px;
+  }
+  .about-txt{
+    max-width: 432px;
+    text-align: left;
+  }
+  .about-section-title{
+    font-size: 35px;
+    max-width:360px;
+    margin:0;
+  }
+  .about-p{
+    padding-top:25px;
+    text-align: left;
+  }
+  .about-section-img{
+    margin-top:80px;
+    padding-bottom: 60px;;
+  }
+  .about-section-img img{
+    width:300px;
+    height:408px;
+  }
+  /*Our friends */
+  .our-friends{
+    padding-top:45px;
+    padding-bottom:16px;
+
+  }
+  .pet-section-h{
+    font-size: 35px;
+  }
+  .cards-el{
+    max-width: 270px;
+    margin-top:17px;
+  }
+  .slider{
+    display: flex;
+    position: relative;
+    align-items: center;
+    top:-290px;
+  }
+  .previous{
+    position: relative;
+    left:-155px;
+  }
+  .next{
+    position: relative;
+    right:-155px;
+  }
+  .get-to-know{
+    position: relative;
+    top:-50px;
+  }
+  .help-pets-h{
+    padding-top: 40px;;
+    font-size: 35px;
+  }
+  .items-list{
+    margin-top:70px;
+    grid-template-columns: auto auto auto;
+    gap:60px;
+  }
+  .items-list h4{
+    font-size: 20px;
+    line-height: 115%;
+  }
+  .help-pets{
+    padding-bottom: 90px;
+  }
+  /*donation */
+  .donation-txt-container{
+    max-width:380px;
+    text-align: left;
+  }
+  .donation-title{
+    font-size: 35px;
+    margin-top:50px;
+  }
+  .credit-card{
+    gap:20px;
+    max-width: 320px;
+    margin-left: 0;
+  }
+  .donation-dog-img {
+    width:505px;
+    height:260px;
+    margin-top: 60px;
+  }
+  .donation{
+    padding-bottom: 33px;
+  }
+  /*footer */
+  .bottom-padding{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    padding-bottom: 0;
+  }
+  .bottom-padding:first-child{
+    grid-column: 1/1;
+  }
+  .grid{
+   grid-column: 3/3;
+  }
+  
+  .contact-info{
+    text-align: left;
+    max-width: 300px;
+  }
+  .contact-info h3{
+    font-size: 35px;
+    margin-top:20px;
+  }
+  .for-visit{
+    margin-top:0;
+  }
+
+  .contact-details, .contact-details a{
+    margin:0;
+    justify-content: flex-start;
+  }
+  .footer-puppy{
+    grid-column: 1/4;
+    margin-top:65px;
+    max-width:300px;
+    max-height:320px;
+  }
+  /*modal*/
+  .not-for-mobile{
+    display: flex;
+    border-radius: 9px 0px 0px 9px;
+  }
+  .modal-container{
+    display:flex;
+    flex-direction: row;
+  }
+  .modal-txt{
+    text-align: left;
+  }
+  .modal-subtitle{
+    margin-left:0;
+  }
+  .modal-p{
+    padding-left: 0;
+    text-align:initial;
+  }
+  .properties{
+    padding-left: 30px;
+  }
+
 }
