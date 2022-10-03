@@ -194,7 +194,8 @@ nav li:first-child{
   text-align: center;
   padding-top:4px;
   padding-bottom:20px;
-  position: relative;;
+  position: relative;
+  overflow-x: hidden;
 }
 .pet-section-h{
   color: #545454;
@@ -203,11 +204,18 @@ nav li:first-child{
 .cards{
   padding:42px 15px;
   z-index:-1;
+  display: flex;
+  flex-direction: row;
+  gap:40px;
+  transform: translateX(0);
+  transition: transform 0.5s ease-in-out;
 }
 .cards-el{
   border-radius: 9px;
   cursor:pointer;
   background: #FAFAFA;
+  width:270px;
+  height:435px;
 }
 .pet-name{
   font-family: 'Georgia';
@@ -478,6 +486,8 @@ nav li:first-child{
 .not-for-mobile{
   display: none;
 }
+
+
 /*tablet version*/
 @media only screen and (min-width: 768px) {
   .container{
@@ -569,9 +579,12 @@ nav li:first-child{
   .pet-section-h{
     font-size: 35px;
   }
+  .cards{
+    margin-left:45px;
+  }
   .cards-el{
     max-width: 270px;
-    margin-top:17px;
+    margin-top:17px; 
   }
   .slider{
     display: flex;
