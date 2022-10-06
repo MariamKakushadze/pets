@@ -682,6 +682,9 @@ nav li:first-child{
     max-height:320px;
   }
   /*modal*/
+  .modal{
+    max-width:900px;
+  }
   .not-for-mobile{
     display: flex;
     border-radius: 9px 0px 0px 9px;
@@ -692,6 +695,7 @@ nav li:first-child{
   }
   .modal-txt{
     text-align: left;
+    margin-left:20px;
   }
   .modal-subtitle{
     margin-left:0;
@@ -761,9 +765,12 @@ nav li:first-child{
 /* our friends*/
 .cards{
   width:890px;
-  gap:100px;
-  margin-left:85px;
+  gap:80px;
+  margin-left:115px;
   margin-top:20px;
+  margin-right: 0;
+  max-width:950px;
+  padding: 0;
 }
 .our-friends{
   padding-top: 25px;
@@ -813,6 +820,9 @@ nav li:first-child{
 
 
 /*modal*/
+.modal{
+  max-width:1000px;
+}
 .not-for-mobile{
   width:500px;
   height:500px;
