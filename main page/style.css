@@ -783,8 +783,10 @@ nav li:first-child{
 }
 
 .items-list{
-  grid-template-columns: repeat(5,2fr);
-
+  display: flex;
+  flex-wrap: wrap;
+  gap: 55px 120px;
+  padding: 0 85px;
 }
 .help-pets{
   padding-bottom: 55px;
