@@ -20,7 +20,7 @@
 
 body {
   width: 100%;
-  height: 100vh; 
+  height: 100vh;; 
   background:#fff;
 }
 .container{
@@ -35,13 +35,15 @@ body {
   top: 5em;
   right: 15%;
   margin-top: -45px;
-  z-index: 5;
+  z-index: 6;
   cursor: pointer;
 }
 .logo{
   position: relative;
-  z-index: 5;
+  z-index: 6;
+  fill: #545454;
 }
+
 .logo a img{
   cursor: pointer;
 }
@@ -57,11 +59,12 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: #545454;
+    background: #fafafa;
     top: -100%; left: 0; right: 0; bottom: 0;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
     transform: scale(0);
+    z-index: 5;
 }
 .menu {
   position: relative;
@@ -136,7 +139,7 @@ nav li a{
   padding-bottom:20px;
   position: relative;
   overflow-x: hidden;
-  z-index:-1;
+  z-index:1;
 }
 .pet-section-h{
   color: #545454;
@@ -144,23 +147,23 @@ nav li a{
 }
 .cards{
   padding:42px 15px;
-  z-index:-1;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap:40px;
   transform: translateX(0);
   transition: transform 0.5s ease-in-out;
 }
-.cards-el{
+.card-el{
   border-radius: 9px;
   cursor:pointer;
   background: #FAFAFA;
   width:270px;
   height:435px;
 }
-.cards-el:hover{
+.card-el:hover{
   background-color: #fff;
 }
+
 .pet-name{
   font-family: 'Georgia';
   font-weight: 400;
@@ -187,40 +190,34 @@ nav li a{
   cursor:pointer;
   background-color:#F1CDB3;
 }
-.slider{
-  display: flex;
-  position: relative;
-  align-items: center;
-  top:-27px
+
+.pagbat {
+  border: 2px solid #f1cdb3;
+  border-radius: 100%;
+  height: 52px;
+  width: 52px;
+  background-color: white;
+  font-size: 1.2rem;
+  margin: auto 0.5em;
 }
-.next img{
-  transform:rotate(180deg);
+.pagbat a{
+  color:#292929;
+  text-decoration: none;
+  cursor: pointer;
 }
-.arrow{
-  border: 2px solid #F1CDB3;
-  border-radius: 100px;
-  padding: 15px 17px;
-}
-.arrow:hover{
-  background-color:#F1CDB3;
+
+#activep:hover{
+  background-color: #F1CDB3;
   cursor:pointer;
 }
-.get-to-know{
-  margin-top:12px;
-  background: #F1CDB3;
-  border-radius: 100px;
-  padding:15px 45px;
-  border-style: none;
-  cursor:pointer;
-  font-family: 'Georgia';
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 130%;
-  letter-spacing: 0.06em;
-  color: #292929;
+.pagbat:nth-child(3) {
+  background-color: #f1cdb3;
 }
-.get-to-know:hover{
-  background: #f1d8c6;
+
+button:disabled{
+  border: 1px solid #b2b2b2;
+  background-color: #f6f6f6;
+  color: #545454;
 }
 
 /*footer*/
@@ -383,10 +380,6 @@ nav li a{
     border-bottom:3px solid #F1CDB3;
     width:114px;
   }
-  .logo{
-    z-index: -1;
-  }
-
   .headding{
     font-size:44px;
     padding:0;
@@ -397,36 +390,22 @@ nav li a{
   .our-friends{
     padding-top:45px;
     padding-bottom:16px;
-
+   z-index: unset;
   }
   .pet-section-h{
     font-size: 35px;
   }
   .cards{
-    margin-left:45px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
   .cards-el{
     max-width: 270px;
-    margin-top:17px; 
+    margin-top:17px ; 
+    width:50%;
   }
-  .slider{
-    display: flex;
-    position: relative;
-    align-items: center;
-    top:-290px;
-  }
-  .previous{
-    position: relative;
-    left:-155px;
-  }
-  .next{
-    position: relative;
-    right:-155px;
-  }
-  .get-to-know{
-    position: relative;
-    top:-50px;
-  }
+  
   /*footer */
   .bottom-padding{
     display: grid;
@@ -503,25 +482,20 @@ nav li a{
  }
 
 /* our friends*/
+
 .cards{
-  width:890px;
-  gap:80px;
-  margin-left:115px;
-  margin-top:20px;
-  margin-right: 0;
-  max-width:950px;
-  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap:30px;
+}
+.cards-el{
+  width:25%;;
 }
 .our-friends{
   padding-top: 25px;
+  z-index: unset;
 }
-.previous{
-  left:-270px;
-}
-.next{
-  right:-270px;
-}
-
 /*footer*/
 .pets-footer{
   align-items: center;
