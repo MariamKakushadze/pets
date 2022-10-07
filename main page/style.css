@@ -210,14 +210,14 @@ nav li:first-child{
   transform: translateX(0);
   transition: transform 0.5s ease-in-out;
 }
-.cards-el{
+.card-el{
   border-radius: 9px;
   cursor:pointer;
   background: #FAFAFA;
   width:270px;
   height:435px;
 }
-.cards-el:hover{
+.card-el:hover{
   background-color: #fff;
 }
 .pet-name{
@@ -585,7 +585,7 @@ nav li:first-child{
   .cards{
     margin-left:45px;
   }
-  .cards-el{
+  .card-el{
     max-width: 270px;
     margin-top:17px; 
   }
