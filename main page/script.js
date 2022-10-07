@@ -18,47 +18,7 @@ for (let i = 0; i < hamburger.length; i++) {
 }
 navbar.addEventListener("click", show);
 
-//Modal window
-const modal = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay");
-const closeBtn = document.querySelector(".close-modal");
-const showBtn = document.querySelectorAll(".learn-more");
-const backgroundColor = document.querySelector(".our-friends");
-
-const openModal = function () {
-  modal.classList.remove("hidden");
-  overlay.classList.remove("hidden");
-};
-
-const closeModal = function () {
-  modal.classList.add("hidden");
-  overlay.classList.add("hidden");
-};
-
-for (let i = 0; i < showBtn.length; i++)
-  showBtn[i].addEventListener("click", openModal);
-
-closeBtn.addEventListener("click", closeModal);
-overlay.addEventListener("click", closeModal);
-
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-    closeModal();
-  }
-});
-
-///
-
-let petName,
-  img,
-  type,
-  breed,
-  description,
-  age,
-  inoculations,
-  diseases,
-  parasites,
-  data;
+///get data from json
 
 fetch("main page/data.json")
   .then((response) => {
@@ -75,18 +35,19 @@ fetch("main page/data.json")
     this.diseases = data.diseases;
     this.parasites = data.parasites;
     this.data = data;
+    this.id=data.id;
 
     // create cards
     const card = document.querySelector(".cards");
-
-    for (let prop in this.data) {
+    let prop, id;
+ 
+    for (prop in this.data) {
       const cardEl = document.createElement("div");
-
       cardEl.classList.add("card-el");
       card.appendChild(cardEl);
       cardEl.innerHTML = `<img src="${this.data[prop].img}" alt="">
-    <p class="pet-name">${this.data[prop].name}</p>
-    <button class="learn-more">Learn More</button>`;
+      <p class="pet-name">${this.data[prop].name}</p>
+      <button class="learn-more">Learn More</button>`;
     }
 
     // carousel
@@ -98,7 +59,7 @@ fetch("main page/data.json")
     const length = this.data.length - 1;
 
     function changeCard() {
-      if (idx > length-1) {
+      if (idx > length) {
         idx = 0;
       } else if (idx < 0) {
         idx = length;
@@ -114,5 +75,60 @@ fetch("main page/data.json")
     prevBtn.addEventListener("click", () => {
       idx--;
       changeCard();
+    });
+
+    //Modal window
+
+    const overlay = document.querySelector(".overlay");
+    const showBtn = document.querySelectorAll(".learn-more");
+    
+
+    for (prop in this.data) {
+      
+      const modal = document.createElement("div");
+      modal.classList.add("modal");
+      modal.classList.add("hidden");
+      card.parentNode.insertBefore(modal, card.nextSibling);
+      modal.innerHTML = `<button class="close-modal">&times;</button>
+      <div class="modal-container">
+        <img class='not-for-mobile'src="${this.data[prop].img}" alt="">
+      <div class="modal-txt">
+      <h1 class="modal-title">${this.data[prop].name}</h1>
+      <h2 class="modal-subtitle">Dog - ${this.data[prop].breed}</h2>
+      <p class="modal-p">${this.data[prop].description}</p>
+      <ul class="properties">
+        <li><b>Age:</b> ${this.data[prop].age}</li>
+        <li><b>Inoculations:</b> ${this.data[prop].inoculations}</li>
+        <li><b>Diseases:</b> ${this.data[prop].diseases}</li>
+        <li><b>Parasites:</b> ${this.data[prop].parasites}</li>
+      </ul>
+      </div>
+    </div>`;
+    }
+   
+   
+    const closeBtn = document.querySelector(".close-modal");
+    const modal=document.querySelector(".modal");
+   
+    const openModal = function () {
+      modal.classList.remove("hidden");
+      overlay.classList.remove("hidden");
+    };
+
+    const closeModal = function () {
+      modal.classList.add("hidden");
+      overlay.classList.add("hidden");
+    };
+
+    for (let i = 0; i < showBtn.length; i++)
+      showBtn[i].addEventListener("click", openModal);
+
+    closeBtn.addEventListener("click", closeModal);
+    overlay.addEventListener("click", closeModal);
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+        closeModal();
+      }
     });
   });
