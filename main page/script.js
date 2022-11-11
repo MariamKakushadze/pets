@@ -22,113 +22,100 @@ navbar.addEventListener("click", show);
 
 fetch("main page/data.json")
   .then((response) => {
+    if (!response.ok) {
+      throw Error("ERROR");
+    }
     return response.json();
   })
   .then((data) => {
-    this.name = data.name;
-    this.img = data.img;
-    this.type = data.type;
-    this.breed = data.breed;
-    this.description = data.description;
-    this.age = data.age;
-    this.inoculations = data.inoculations;
-    this.diseases = data.diseases;
-    this.parasites = data.parasites;
-    this.data = data;
-    this.id=data.id;
-
-    // create cards
-    const card = document.querySelector(".cards");
-    let prop, id;
- 
-    for (prop in this.data) {
+    let info = data;
+    info.map((arr) => {
+      // create cards
+      const card = document.querySelector(".cards");
       const cardEl = document.createElement("div");
       cardEl.classList.add("card-el");
       card.appendChild(cardEl);
-      cardEl.innerHTML = `<img src="${this.data[prop].img}" alt="">
-      <p class="pet-name">${this.data[prop].name}</p>
-      <button class="learn-more">Learn More</button>`;
-    }
+      cardEl.innerHTML = `<img src="${arr.img}" alt="">
+      <p class="pet-name">${arr.name}</p>
+      `;
 
-    // carousel
-    const prevBtn = document.querySelector(".previous");
-    const nextBtn = document.querySelector(".next");
+      const showBtn=document.createElement("button");
+      showBtn.className='learn-more';
+      showBtn.textContent='Learn More';
+      cardEl.appendChild(showBtn);
 
-    let idx = 0;
+      //Modal window
 
-    const length = this.data.length - 1;
+      const overlay = document.querySelector(".overlay");
 
-    function changeCard() {
-      if (idx > length) {
-        idx = 0;
-      } else if (idx < 0) {
-        idx = length;
-      }
-      card.style.transform = `translateX(${-idx * 310}px)`;
-    }
 
-    nextBtn.addEventListener("click", () => {
-      idx++;
-      changeCard();
-    });
-
-    prevBtn.addEventListener("click", () => {
-      idx--;
-      changeCard();
-    });
-
-    //Modal window
-
-    const overlay = document.querySelector(".overlay");
-    const showBtn = document.querySelectorAll(".learn-more");
-    
-
-    for (prop in this.data) {
-      
       const modal = document.createElement("div");
       modal.classList.add("modal");
       modal.classList.add("hidden");
       card.parentNode.insertBefore(modal, card.nextSibling);
       modal.innerHTML = `<button class="close-modal">&times;</button>
       <div class="modal-container">
-        <img class='not-for-mobile'src="${this.data[prop].img}" alt="">
+        <img class='not-for-mobile'src="${arr.img}" alt="">
       <div class="modal-txt">
-      <h1 class="modal-title">${this.data[prop].name}</h1>
-      <h2 class="modal-subtitle">Dog - ${this.data[prop].breed}</h2>
-      <p class="modal-p">${this.data[prop].description}</p>
+      <h1 class="modal-title">${arr.name}</h1>
+      <h2 class="modal-subtitle">Dog - ${arr.breed}</h2>
+      <p class="modal-p">${arr.description}</p>
       <ul class="properties">
-        <li><b>Age:</b> ${this.data[prop].age}</li>
-        <li><b>Inoculations:</b> ${this.data[prop].inoculations}</li>
-        <li><b>Diseases:</b> ${this.data[prop].diseases}</li>
-        <li><b>Parasites:</b> ${this.data[prop].parasites}</li>
+        <li><b>Age:</b> ${arr.age}</li>
+        <li><b>Inoculations:</b> ${arr.inoculations}</li>
+        <li><b>Diseases:</b> ${arr.diseases}</li>
+        <li><b>Parasites:</b> ${arr.parasites}</li>
       </ul>
       </div>
     </div>`;
-    }
-   
-   
-    const closeBtn = document.querySelector(".close-modal");
-    const modal=document.querySelector(".modal");
-   
-    const openModal = function () {
-      modal.classList.remove("hidden");
-      overlay.classList.remove("hidden");
-    };
 
-    const closeModal = function () {
-      modal.classList.add("hidden");
-      overlay.classList.add("hidden");
-    };
+      const closeBtn = document.querySelector(".close-modal");
 
-    for (let i = 0; i < showBtn.length; i++)
-      showBtn[i].addEventListener("click", openModal);
+      const openModal = function () {
+        modal.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+      };
 
-    closeBtn.addEventListener("click", closeModal);
-    overlay.addEventListener("click", closeModal);
+      const closeModal = function () {
+        modal.classList.add("hidden");
+        overlay.classList.add("hidden");
+      };
 
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-        closeModal();
+      showBtn.addEventListener("click", openModal);
+
+      closeBtn.addEventListener("click", closeModal);
+      overlay.addEventListener("click", closeModal);
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+          closeModal();
+        }
+      });
+
+      // carousel
+      const prevBtn = document.querySelector(".previous");
+      const nextBtn = document.querySelector(".next");
+
+      let idx = 0;
+      const length = info.length - 1;
+
+      function changeCard() {
+        if (idx > length) {
+          idx = 0;
+        } else if (idx < 0) {
+          idx = length;
+        }
+        card.style.transform = `translateX(${-idx * 310}px)`;
       }
+
+      nextBtn.addEventListener("click", () => {
+        idx++;
+        changeCard();
+      });
+
+      prevBtn.addEventListener("click", () => {
+        idx--;
+        changeCard();
+      });
     });
   });
